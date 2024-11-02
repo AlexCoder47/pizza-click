@@ -1,0 +1,74 @@
+$orange: #ffa812;
+$orange-dark: #ffa042;
+
+
+@mixin nunito-regular {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {margin: 0; padding: 0;}
+
+body {
+    @include nunito-regular;
+    background-color: $orange;
+    .wrapper {
+        margin: 20px 40px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+}
+
+header {
+    margin: -20px;
+    padding: 0 20px;
+    border-bottom: 1px solid $orange;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    .logo-descr {
+        display: flex;
+        flex-direction: column;
+        h1 {
+            margin: 10px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+        p {
+            margin: 10px;
+            margin-top: 0;
+        }
+    }
+    .cart-button {
+        background-color: $orange-dark;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+        .cart-button-price {
+            border-right: 1px solid ;
+            padding-right: 10px;
+            gap: 5px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+}
