@@ -22,9 +22,20 @@ $gray: rgb(228, 228, 228);
 	}
 }
 
+@keyframes jump {
+    from {
+        transform: translateY();
+    }
+
+    to {
+        transform: translateY(3px);
+    }
+}
+
 * { margin: 0; padding: 0; }
 
 h1,h2,h3,h4,h5,h6 {margin: 0; padding: 0;}
+button {margin: 0; padding: 0; background-color: #fff; font-size: inherit; font-weight: inherit; font-family: inherit}
 
 body {
     @include nunito-regular;
@@ -216,6 +227,9 @@ nav {
                     background-color: #fff;
                 }
             }
+            &:active {
+                animation: jump 0.5ms;
+            }
             span {
                 background-color: $orange-dark;
                 color: #fff;
@@ -223,8 +237,8 @@ nav {
                 line-height: 10px;  /* подробнее про line-height */
                 text-align: center;
                 border-radius: 50%;
-                width: 10px;
-                height: 10px;
+                min-width: 10px;
+                min-height: 10px;
             }
         }
     }

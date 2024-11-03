@@ -1,5 +1,14 @@
+import { useState } from "react";
 
 function Pizza({title, price}) {
+    const [pizzaCount, setPizzaCount] = useState(0);
+
+    const addPizza = () => {
+        if (pizzaCount < 9) {
+            setPizzaCount(pizzaCount + 1);
+        }
+    }
+
     return (
         <div className="card-pizza">
             <img src="pizza-margherita.png" alt="" />
@@ -17,10 +26,10 @@ function Pizza({title, price}) {
             </div>
             <div className="card-pizza-result">
                 <div className="card-pizza-price">{price}р</div>
-                <div className="card-pizza-add">
+                <button className="card-pizza-add" onClick={addPizza}>
                     + Добавить
-                    <span>3</span>
-                </div>
+                    <span>{pizzaCount}</span>
+                </button>
             </div>
         </div>
     )
