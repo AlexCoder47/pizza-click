@@ -1,12 +1,14 @@
+import { useState } from "react";
 
 function Categories() {
+    const [activeIndex, setIndexActive] = useState(0);
+    const categories = ['Все', 'Мясные', 'Вегетарианские', 'Острые', 'Гриль'];
+
     return (
         <nav>
-            <p className="active">Все</p>
-            <p>Мясные</p>
-            <p>Вегетарианские</p>
-            <p>Острые</p>
-            <p>Гриль</p>
+            {categories.map((value, i) => (
+                <p onClick={() => {setIndexActive(i)}} className={activeIndex == i ? "active" : ""}>{value}</p>
+            ))}
         </nav>
     )
 }
