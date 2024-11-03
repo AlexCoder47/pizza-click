@@ -1,5 +1,6 @@
 $orange: #ffa812;
 $orange-dark: #fe5f1e;
+$gray: rgb(228, 228, 228);
 
 
 @mixin nunito-regular {
@@ -115,7 +116,7 @@ nav {
     p {
         padding: 8px 12px;
         border-radius: 40px;
-        border: 1px solid #000;
+        background-color: $gray;
         cursor: pointer;
         &.active {
             background-color: #000;
@@ -148,7 +149,7 @@ nav {
         width: 300px;
     }
     .card-pizza-settings {
-        background-color: rgb(228, 228, 228);
+        background-color: $gray;
         margin: 10px;
         padding: 5px;
         border-radius: 10px;

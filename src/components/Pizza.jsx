@@ -1,9 +1,9 @@
 
-function Pizza() {
+function Pizza({title, price}) {
     return (
         <div className="card-pizza">
             <img src="pizza-margherita.png" alt="" />
-            <h3>Четыре сыра</h3>
+            <h3>{title}</h3>
             <div className="card-pizza-settings">
                 <div className="card-pizza-type">
                     <span className="active">тонкая</span>
@@ -16,7 +16,7 @@ function Pizza() {
                 </div>
             </div>
             <div className="card-pizza-result">
-                <div className="card-pizza-price">350р</div>
+                <div className="card-pizza-price">{price}р</div>
                 <div className="card-pizza-add">
                     + Добавить
                     <span>3</span>

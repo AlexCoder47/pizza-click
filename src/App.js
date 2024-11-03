@@ -16,14 +16,8 @@ function App() {
         <h2>Все пиццы</h2> 
       </div>
       <div className='pizza-block'>
-        <Pizza />
-        <Pizza />
-        <Pizza />
-        <Pizza />
-        <Pizza />
-        <Pizza />
-        <Pizza />
-        <Pizza />
+        <Pizza title="Маргарита" price={500}/>
+        <Pizza title="Пепперони" price={700}/>
       </div>
     </div>
   );

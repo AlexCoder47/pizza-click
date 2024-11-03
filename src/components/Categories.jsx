@@ -3,9 +3,10 @@ function Categories() {
     return (
         <nav>
             <p className="active">Все</p>
-            <p>Большие</p>
-            <p>Маленькие</p>
+            <p>Мясные</p>
+            <p>Вегетарианские</p>
             <p>Острые</p>
+            <p>Гриль</p>
         </nav>
     )
 }
