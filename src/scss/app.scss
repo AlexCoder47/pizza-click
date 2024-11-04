@@ -128,15 +128,42 @@ nav {
     }
 }
 
-.sort {
-    display: flex;
-    gap: 5px;
-    span {
-        text-decoration: underline dotted;
-        cursor: pointer;
-        color: $orange-dark;
+.sort-block {
+    position: relative;
+    .sort {
+        display: flex;
+        gap: 5px;
+        span {
+            text-decoration: underline dotted;
+            cursor: pointer;
+            color: $orange-dark;
+        }
+    }
+    .sort-popup {
+        position: absolute;
+        width: 100%;
+        right: 0;
+        top: 25px;
+        
+        text-align: center;
+        z-index: 100;
+        div {
+            padding: 10px;
+            background-color: $gray;
+            cursor: pointer;
+            border-bottom: 1px solid #000;
+            &:last-child {
+                border-bottom: none; 
+            }
+            &.active {
+                background-color: $orange-dark;
+            }
+            
+        }
     }
 }
+
+
 
 .card-pizza {
     display: flex;

@@ -19,7 +19,7 @@ function App() {
       <div className='pizza-block'>
         {
           pizza.map((obj)=>(
-            <Pizza {...obj}/>
+            <Pizza key={obj.id} {...obj}/>
           ))
         }
       </div>
