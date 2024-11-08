@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 
-function Sort() {
-    const [selected, setSelected] = useState(0);
+function Sort({sortType, onClickSort}) {
     const [visiblePopup, setVisiblePopup] = useState(false);
-    const sortName = ["названию", "цене", "популярности"];
-    const onClickSortItem = (index) => {
-        setSelected(index);
+    const sortName = [
+        { name: "названию", sortProperty: "title" },
+        { name: "цене", sortProperty: "price" },
+        { name: "популярности", sortProperty: "rating" },
+    ];
+    const onClickSortItem = (obj) => {
+        onClickSort(obj);
         setVisiblePopup(false);
     };
     return (
         <div className="sort-block">
             <div className="sort">
                 <p>Сортировка по: </p>
-                <span onClick={()=>(setVisiblePopup(true))}>{sortName[selected]}</span>
+                <span onClick={()=>(setVisiblePopup(true))}>{sortType.name}</span>
             </div>
             {visiblePopup && (
                 <div className="sort-popup">
-                    {sortName.map((value, i) => (
+                    {sortName.map((obj, i) => (
                         <div
                             key={i}
-                            onClick={() => onClickSortItem(i)}
-                            className={selected == i ? "active" : ""}
+                            onClick={() => onClickSortItem(obj)}
+                            className={sortType.sortProperty == obj.sortProperty ? "active" : ""}
                         >
-                            {value}
+                            {obj.name}
                         </div>
                     ))}
                 </div>
