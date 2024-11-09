@@ -5,11 +5,11 @@ import SceletonPizza from "../components/Pizza/Sceleton";
 import Sort from "../components/Sort";
 import Pizza from "../components/Pizza";
 
-function Home() {
+function Home({searchValue}) {
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
-    const [categoryId, setCategoryId] = React.useState(1);
+    const [categoryId, setCategoryId] = React.useState(0);
     const [sortType, setSortType] = React.useState({ name: "названию", sortProperty: "title" });
     
     React.useEffect(() => {
@@ -17,14 +17,14 @@ function Home() {
         fetch(
             `https://6728a780270bd0b97556a11a.mockapi.io/items?${
                 categoryId > 0 ? `category=` + categoryId : ""
-            }&sortBy=${sortType.sortProperty}&order=desc`
+            }&sortBy=${sortType.sortProperty}&order=desc&search=${searchValue}`
         )
             .then((res) => res.json())
             .then((arr) => {
                 setItems(arr);
                 setIsLoading(false);
             });
-    }, [categoryId, sortType]);
+    }, [categoryId, sortType, searchValue]);
 
 
 
