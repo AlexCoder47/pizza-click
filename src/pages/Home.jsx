@@ -4,8 +4,10 @@ import Categories from "../components/Categories";
 import SceletonPizza from "../components/Pizza/Sceleton";
 import Sort from "../components/Sort";
 import Pizza from "../components/Pizza";
+import { SearchContext } from "../App";
 
-function Home({searchValue}) {
+function Home() {
+    const {searchValue} = React.useContext(SearchContext)
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
@@ -28,7 +30,7 @@ function Home({searchValue}) {
 
 
 
-
+    
     return (
         <React.Fragment>
             <div className="second-header">
