@@ -5,14 +5,21 @@ import SceletonPizza from "../components/Pizza/Sceleton";
 import Sort from "../components/Sort";
 import Pizza from "../components/Pizza";
 import { SearchContext } from "../App";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategoryId, setSort } from "../redux/slices/filterSlice";
 
 function Home() {
     const {searchValue} = React.useContext(SearchContext)
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
-    const [categoryId, setCategoryId] = React.useState(0);
-    const [sortType, setSortType] = React.useState({ name: "названию", sortProperty: "title" });
+    const dispatch = useDispatch();
+    const {categoryId, sort} = useSelector( state => state.filter );
+    const sortType = sort;
+
+
+    // const [categoryId, setCategoryId] = React.useState(0);
+    // const [sortType, setSortType] = React.useState({ name: "названию", sortProperty: "title" });
     
     React.useEffect(() => {
         setIsLoading(true);
@@ -37,13 +44,13 @@ function Home() {
                 <Categories
                     categoryId={categoryId}
                     onClickCategory={(id) => {
-                        setCategoryId(id);
+                        dispatch(setCategoryId(id));
                     }}
                 />
                 <Sort
                     sortType={sortType}
                     onClickSort={(obj) => {
-                        setSortType(obj);
+                        dispatch(setSort(obj));
                     }}
                 />
             </div>
